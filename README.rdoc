@@ -29,3 +29,6 @@ If you're subclassing <code>Sinatra::Base</code>, then you need to call
 == Copyright
 
 Copyright (c) 2009 twilson63. See LICENSE for details.
+  
+
+== Updated
