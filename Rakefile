@@ -1,26 +1,32 @@
+require 'rake/clean'
+require 'rake/testtask'
+require 'fileutils'
+
 require 'rubygems'
 require 'rake'
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "sinatra-formhelpers"
+    gem.name = "test-gem"
     gem.summary = %Q{TODO}
     gem.email = "tom@jackrussellsoftware.com"
-    gem.homepage = "http://github.com/twilson63/sinatra-formhelpers"
+    gem.homepage = "http://github.com/twilson63/test-gem"
     gem.authors = ["twilson63"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
-
+  
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
+task :spec => :test
+
+# SPECS ===============================================================
+
+Rake::TestTask.new(:test) do |t|
+  t.test_files = FileList['test/*_test.rb']
+  t.ruby_opts = ['-rubygems'] if defined? Gem
 end
 
 begin
@@ -47,10 +53,12 @@ Rake::RDocTask.new do |rdoc|
   else
     version = ""
   end
-
+  
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "sinatra-formhelpers #{version}"
+  rdoc.title = "test-gem #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+
 
