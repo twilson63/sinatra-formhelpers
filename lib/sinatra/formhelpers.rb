@@ -3,6 +3,19 @@ require 'activesupport'
 
 module Sinatra
   module FormHelpers
+    # FormHelpers are a suite of helper methods
+    # built to make building forms in Sinatra
+    # a breeze.
+    # 
+    # link "jackhq", "http://www.jackhq.com"
+    # 
+    # label :person, :first_name
+    # text :person, :first_name
+    # 
+    # area :person, :notes
+    # 
+    # etc.
+    
     def link(content, href, options={})
       tag :a, content, options.merge(:href => href)  
     end

@@ -8,12 +8,16 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "test-gem"
-    gem.summary = %Q{TODO}
+    gem.name = "sinatra-formhelpers"
+    gem.summary = %Q{use basic form helpers for generic form management}
     gem.email = "tom@jackrussellsoftware.com"
-    gem.homepage = "http://github.com/twilson63/test-gem"
+    gem.homepage = "http://github.com/twilson63/sinatra-formhelpers"
     gem.authors = ["twilson63"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_runtime_dependency 'sinatra', ['>= 0.9.2.0']
+    gem.add_runtime_dependency 'activesupport', ['>= 2.3.2.0']
+    
+    
   end
   
 rescue LoadError
