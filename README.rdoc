@@ -2,9 +2,9 @@
   
 <code>sinatra-formhelpers</code> is a suite of form helpers for sinatra.  
 
-link "google", "http://www.google.com"            # Returns "<a href='http://www.google.com'>google</a>"
-label :person, :first_name         # Returns "<label for='person_first_name'>First Name</label>"
-text :person, :first_name  # Returns "<input name='person[first_name]' id='person_first_name' value='' type='text' />"
+  link "google", "http://www.google.com"            # Returns "<a href='http://www.google.com'>google</a>"
+  label :person, :first_name         # Returns "<label for='person_first_name'>First Name</label>"
+  text :person, :first_name  # Returns "<input name='person[first_name]' id='person_first_name' value='' type='text' />"
 
 There are also helpers for (area, submit, image, radio, checkbox, and select)
 
@@ -14,16 +14,16 @@ sudo gem install twilson63-sinatra-formhelpers -s http://gems.github.com
 
 To include it in a Sinatra application, write:
 
-require 'rubygems'
-require 'sinatra/formhelpers'
+  require 'rubygems'
+  require 'sinatra/formhelpers'
       
 If you're subclassing <code>Sinatra::Base</code>, then you need to call
 <code>helpers</code> manually:
 
-class MyApp < Sinatra::Base
-  helpers Sinatra::FormHelpers
-  # ...
-end
+  class MyApp < Sinatra::Base
+    helpers Sinatra::FormHelpers
+    # ...
+  end
         
               
 == Copyright
