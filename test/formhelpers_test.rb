@@ -57,6 +57,22 @@ class FormHelpersTest < Test::Unit::TestCase
     end            
   end
 
+  describe 'formhelpers text with single arg' do
+    setup do
+      mock_app {
+        helpers Sinatra::FormHelpers
+        get '/' do
+          haml "= text :q"
+        end
+      }
+    end
+    
+    it 'renders an input tag type text with single arg' do
+      get '/'
+      assert_equal "<input name='q' id='q' value='' type='text' />\n", body
+    end            
+  end
+  
   describe 'formhelpers text with @params' do
     setup do
       mock_app {

@@ -24,9 +24,10 @@ module Sinatra
       tag :label, field.to_s.titleize, options.merge(:for => "#{obj}_#{field}")
     end
     
-    def text(obj, field, options={})
+    def text(obj, field="", options={})
       content = @params[obj] ? @params[obj][field.to_s] : ""       
-      single_tag :input, options.merge(:type => "text", :id => "#{obj}_#{field}", :name => "#{obj}[#{field}]", :value => content)
+      id = 
+      single_tag :input, options.merge(:type => "text", :id => field == "" ? obj : "#{obj}_#{field}", :name => field == "" ? obj : "#{obj}[#{field}]", :value => content)
     end
     
     def area(obj, field, options={})
