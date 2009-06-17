@@ -39,8 +39,8 @@ module Sinatra
       single_tag :img, options.merge(:src => src)
     end
     
-    def submit(obj, value, options={})
-      single_tag :input, options.merge(:type => "submit", :value => value)
+    def submit(obj, value="", options={})
+      single_tag :input, options.merge(:type => "submit", :value => value == "" ? obj : value)
     end
     
     def checkbox(obj, field, options={})

@@ -156,7 +156,22 @@ class FormHelpersTest < Test::Unit::TestCase
     end        
   end
   
-
+  describe 'formhelpers submit single arg' do
+    setup do
+      mock_app {
+        helpers Sinatra::FormHelpers
+        get '/' do
+          haml "= submit 'Create'"
+        end
+      }
+    end
+    
+    it 'renders an input tag with a submit type with single arg' do
+      get '/'
+      assert_equal "<input value='Create' type='submit' />\n", body
+    end        
+  end
+  
   describe 'formhelpers checkbox' do
     setup do
       mock_app {
