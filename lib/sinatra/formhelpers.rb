@@ -62,6 +62,10 @@ module Sinatra
       tag :select, content, options
     end
     
+    def hidden(obj, field="", options={})
+      content = @params[obj] && @params[obj][field.to_s] == value ? "true" : ""       
+      single_tag :input, options.merge(:type => "hidden", :id => "#{obj}_#{field}", :name => "#{obj}[#{field}]")      
+    end
     
     # standard open and close tags
     # EX : tag :h1, "shizam", :title => "shizam"

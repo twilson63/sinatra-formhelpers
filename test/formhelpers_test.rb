@@ -221,6 +221,20 @@ class FormHelpersTest < Test::Unit::TestCase
     end        
   end
   
-
+  describe 'formhelpers hidden' do
+    setup do
+      mock_app {
+        helpers Sinatra::FormHelpers
+        get '/' do 
+          haml '= hidden :person, :id, { :value => 1 }'
+        end
+      }
+    end
+    
+    it 'renders a hidden tag with value' do
+      get '/'
+      assert_equal "<input name='person[id]' id='person_id' value='1' type='hidden' />\n", body
+    end    
+  end
 end
 
