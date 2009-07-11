@@ -38,6 +38,23 @@ class FormHelpersTest < Test::Unit::TestCase
     it 'renders an label tag' do
       get '/'
       assert_equal "<label for='person_first_name'>First Name</label>\n", body
+    end
+    
+  end
+
+  describe 'formhelpers custom display label' do
+    setup do
+      mock_app {
+        helpers Sinatra::FormHelpers
+        get '/' do
+          haml "= label :person, :first_name, 'Hello World'"
+        end
+      }
+    end
+        
+    it 'renders an label tag with display text' do
+      get '/'
+      assert_equal "<label for='person_first_name'>Hello World</label>\n", body
     end    
   end
   
@@ -53,6 +70,7 @@ class FormHelpersTest < Test::Unit::TestCase
     
     it 'renders an input tag type text without @params' do
       get '/'
+      assert_contains "name='person[first_name]'"
       assert_equal "<input name='person[first_name]' id='person_first_name' value='' type='text' />\n", body
     end            
   end
@@ -184,7 +202,9 @@ class FormHelpersTest < Test::Unit::TestCase
     
     it 'renders an input tag with a checkbox type' do
       get '/'
-      assert_equal "<input name='person[active]' id='person_active' type='checkbox' />\n", body
+      assert_match /name=\'person\[active\]\'/, body
+      assert_match /id=\'person_active\'/, body
+      assert_match /type=\'checkbox\'/, body
     end        
   end
   

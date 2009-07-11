@@ -20,8 +20,8 @@ module Sinatra
       tag :a, content, options.merge(:href => href)  
     end
     
-    def label(obj,field, options={})
-      tag :label, field.to_s.titleize, options.merge(:for => "#{obj}_#{field}")
+    def label(obj, field, display = "", options={})
+      tag :label, display.blank? ? field.to_s.titleize : display, options.merge(:for => "#{obj}_#{field}")
     end
     
     def text(obj, field="", options={})
@@ -49,8 +49,9 @@ module Sinatra
     end
     
     def radio(obj, field, value, options={})
-      content = @params[obj] && @params[obj][field.to_s] == value ? "true" : ""       
-      tag :input, value, options.merge(:type => "radio", :id => "#{obj}_#{field}", :name => "#{obj}[#{field}]", :value => value, :checked => content)
+      #content = @params[obj] && @params[obj][field.to_s] == value ? "true" : ""    
+      # , :checked => content   
+      tag :input, value, options.merge(:type => "radio", :id => "#{obj}_#{field}", :name => "#{obj}[#{field}]", :value => value)
       
     end
     
