@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sinatra-formhelpers}
-  s.version = "0.3.0"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["twilson63"]
-  s.date = %q{2009-06-18}
+  s.date = %q{2009-07-11}
   s.email = %q{tom@jackrussellsoftware.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -29,12 +29,12 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/twilson63/sinatra-formhelpers}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.4}
+  s.rubygems_version = %q{1.3.3}
   s.summary = %q{use basic form helpers for generic form management}
   s.test_files = [
-    "test/helper.rb",
-     "test/contest.rb",
-     "test/formhelpers_test.rb"
+    "test/contest.rb",
+     "test/formhelpers_test.rb",
+     "test/helper.rb"
   ]
 
   if s.respond_to? :specification_version then
