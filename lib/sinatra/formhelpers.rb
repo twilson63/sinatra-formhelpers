@@ -51,7 +51,7 @@ module Sinatra
     def radio(obj, field, value, options={})
       #content = @params[obj] && @params[obj][field.to_s] == value ? "true" : ""    
       # , :checked => content   
-      tag :input, "", options.merge(:type => "radio", :id => "#{obj}_#{field}", :name => "#{obj}[#{field}]", :value => value)
+      tag :input, "", options.merge(:type => "radio", :id => "#{obj}_#{field}_#{value}", :name => "#{obj}[#{field}]", :value => value)
       
     end
     
