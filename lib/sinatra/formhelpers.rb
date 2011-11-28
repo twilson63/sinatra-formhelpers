@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'activesupport'
+require 'active_support/all'
 
 module Sinatra
   module FormHelpers
